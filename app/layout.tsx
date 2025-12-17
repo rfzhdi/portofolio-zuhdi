@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localfont from "next/font/local"
 import CustomCursor from "@/components/CustomCursor";
@@ -16,14 +15,32 @@ const coolvetica = localfont({
   ],
   variable: "--font-coolvetica"
 })
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+
+const geist = localfont({
+  src: [
+    {
+      path: "../public/fonts/Geist-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Geist-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-geist",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localfont({
+  src: [
+    {
+      path: "../public/fonts/GeistMono-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body>
         <CustomCursor />
         <Navbar />

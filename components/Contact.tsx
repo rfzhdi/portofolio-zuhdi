@@ -25,15 +25,15 @@ export default function Contact() {
                     },
                 },
             }}
-            className="space-y-3 text-lg">
+            className="space-y-4 text-base md:text-lg">
                 <motion.p
                 variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 },
                 }}
-                className="group">
+                >
                     Email:
-                    <a href="rafizuhdi09@gmail.com"
+                    <a href="mailto:rafizuhdi09@gmail.com"
                     className="relative ml-2 inline-block font-medium text-white
                     transition-all duration-300 group
                     group-hover:decoration-blue-600 underline-offset-4">
@@ -56,9 +56,11 @@ export default function Contact() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 },
                 }}
-                className="group">
+                >
                     WhatsApp:
                     <a href="https://wa.me/+6285658266694"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="relative ml-2 inline-block font-medium text-white
                     transition-all duration-300 group
                     group-hover:decoration-blue-600 underline-offset-4">
@@ -81,9 +83,11 @@ export default function Contact() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 },
                 }}
-                className="group">
+                >
                     LinkedIn:
                     <a href="https://linkedin.com/in/rafizuhdi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="relative ml-2 inline-block font-medium text-white
                     transition-all duration-300 group
                     group-hover:decoration-blue-600 underline-offset-4">

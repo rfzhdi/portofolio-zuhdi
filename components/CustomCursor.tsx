@@ -3,52 +3,71 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export default function CustomCursor(){
-    const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-    const [cursorHover, setCursorHover] = useState(false);
+export default function CustomCursor() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursorHover, setCursorHover] = useState(false);
+  const [onNavbar, setOnNavbar] = useState(false);
 
-    useEffect (() => {
-        const move = (e: MouseEvent) => {
-            setCursorPos({ x: e.clientX, y: e.clientY });
-        };
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
 
-        const addHover = () => setCursorHover(true);
-        const removeHover = () => setCursorHover(false);
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
 
-        window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
-        // Detect Hover Link
-        const links = document.querySelectorAll("a, button");
-        links.forEach((el) => {
-            el.addEventListener("mouseenter", addHover);
-            el.addEventListener("mouseleave", removeHover);
-        });
+  useEffect(() => {
+    if (!isDesktop) return;
 
-        return () => {
-            window.removeEventListener("mousemove", move);
-            links.forEach((el) => {
-                el.removeEventListener("mouseenter", addHover);
-                el.removeEventListener("mouseleave", removeHover);
-            });
-        };
-    }, []);
+    const move = (e: MouseEvent) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
 
-    return (
-        <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-9999
-        bg-white mix-blend-difference"
-        animate={{
-            x: cursorPos.x - 1,
-            y: cursorPos.y - 20,
-            width: 2,
-            height: 30,
-        }}
-        transition={{
-            type: "spring",
-            stiffness: 250,
-            damping: 20,
-            mass: 0.2,
-        }}>
-        </motion.div>
-    );
+    const addHover = () => setCursorHover(true);
+    const removeHover = () => setCursorHover(false);
+
+    window.addEventListener("mousemove", move);
+
+    const links = document.querySelectorAll("a, button");
+    links.forEach((el) => {
+      el.addEventListener("mouseenter", addHover);
+      el.addEventListener("mouseleave", removeHover);
+    });
+
+    return () => {
+      window.removeEventListener("mousemove", move);
+      links.forEach((el) => {
+        el.removeEventListener("mouseenter", addHover);
+        el.removeEventListener("mouseleave", removeHover);
+      });
+    };
+  }, [isDesktop]);
+
+  // Tidak render cursor di HP
+  if (!isDesktop) return null;
+
+  return (
+    <motion.div
+      className={`fixed top-0 left-0 pointer-events-none z-9999
+      bg-white
+      ${onNavbar ? "" : "mix-blend-difference"}`}
+      animate={{
+        x: cursorPos.x - 3,
+        y: cursorPos.y - 15,
+        width: cursorHover ? 2 : 2,
+        height: cursorHover ? 30 : 30,
+        borderRadius: onNavbar ? "50%" : "2px",
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 250,
+        damping: 20,
+        mass: 0.2,
+      }}
+    />
+  );
 }

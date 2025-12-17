@@ -5,6 +5,16 @@
   --foreground: #171717;
 }
 
+::selection {
+  background: white;
+  color: black;
+}
+
+::-moz-selection {
+  background: white;
+  color: black;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -17,6 +27,36 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('/fonts/Coolvetica.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Tondu';
+  src: url('/fonts/Tondu-Beta.ttf') format('truetype');
+}
+
+body, html {
+  cursor: none;
+}
+
+a, button, input, textarea {
+  cursor: none !important;
+}
+
+.coolvetica {
+  font-family: 'Coolvetica', sans-serif;
+}
+
+.tondu {
+  font-family: 'Tondu', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

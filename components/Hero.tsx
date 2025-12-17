@@ -16,7 +16,7 @@ export default function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="rounded-2xl overflow-hidden">
         <Image
-          src="/images/fotoku1.jpg"
+          src="/images/fotoku1.JPG"
           alt="Foto"
           width={200}
           height={300}

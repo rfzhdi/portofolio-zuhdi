@@ -29,7 +29,7 @@ export default function Projects() {
                             className="object-cover md:group-hover:scale-105 transition-transform duration-300"
                             />
                         </div>
-                        <a href="https://github.com/rfzhdi/sistem-pengelolaan-rekam-medis-ibnu-sina" className="text-blue-400 md:group-hover:text-blue-700 font-medium">Lihat Project</a>
+                        <a href="https://github.com/rfzhdi/sistem-pengelolaan-rekam-medis-ibnu-sina" className="text-blue-400 md:group-hover:text-blue-700 font-medium">See Projects</a>
                         </div>
                 </motion.div>
 
@@ -54,7 +54,7 @@ export default function Projects() {
                         className="object-cover md:group-hover:scale-105 transition-transform duration-300"
                         />
                     </div>
-                    <a href="https://github.com/rfzhdi/sistem-informasi-inventaris-aset-fpg1" className="text-blue-400 md:group-hover:text-blue-700 font-medium">Lihat Project</a>
+                    <a href="https://github.com/rfzhdi/sistem-informasi-inventaris-aset-fpg1" className="text-blue-400 md:group-hover:text-blue-700 font-medium">See Projects</a>
                     </div>
                 </motion.div>
             </div>

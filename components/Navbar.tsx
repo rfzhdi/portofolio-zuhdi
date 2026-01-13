@@ -15,7 +15,7 @@ export default function Navbar() {
 
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex gap-6">
-          {["Home", "About", "Projects", "Contact"].map((item) => (
+          {["Home", "About", "Projects", "Portofolio", "Certificate", "Contact"].map((item) => (
             <li key={item} className="relative">
               <Link
                 href={item === "Home" ? "/" : `#${item}`}
@@ -60,7 +60,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden flex flex-col px-6 pb-4 gap-4 bg-black"
           >
-            {["Home", "About", "Projects", "Contact"].map((item) => (
+            {["Home", "About", "Projects", "Portofolio", "Certificate", "Contact"].map((item) => (
               <li key={item}>
                 <Link
                   href={item === "Home" ? "/" : `#${item}`}

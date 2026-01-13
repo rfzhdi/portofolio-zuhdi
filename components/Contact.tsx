@@ -94,7 +94,34 @@ export default function Contact() {
                         <span
                         className="relative z-10 px-1
                         group-hover:text-black transition-colors duration-300">
-                            Linkedin/zuhdi
+                            linkedin.com/in/rafizuhdi
+                        </span>
+                        <span
+                        className="absolute inset-0 
+                        bg-white
+                        scale-x-0 origin-left 
+                        group-hover:scale-x-100
+                        transition-transform duration-200">
+                        </span>
+                        </a>
+                </motion.p>
+                <motion.p
+                variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                }}
+                >
+                    Github:
+                    <a href="https://github.com/rfzhdi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative ml-2 inline-block font-medium text-white
+                    transition-all duration-300 group
+                    group-hover:decoration-blue-600 underline-offset-4">
+                        <span
+                        className="relative z-10 px-1
+                        group-hover:text-black transition-colors duration-300">
+                            github.com/rfzhdi
                         </span>
                         <span
                         className="absolute inset-0 
